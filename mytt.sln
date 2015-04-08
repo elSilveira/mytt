@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mytt", "mytt\mytt.csproj", "{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{FEF186F4-19D4-4410-AA56-E255227ED6B7}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{EA7C6F9B-00EE-46BA-9FCC-155629866041}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\mytt-WAWS-dev.json = PublishScripts\Configurations\mytt-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA7C6F9B-00EE-46BA-9FCC-155629866041} = {FEF186F4-19D4-4410-AA56-E255227ED6B7}
+	EndGlobalSection
+EndGlobal
