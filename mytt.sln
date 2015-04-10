@@ -19,18 +19,35 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|x64.ActiveCfg = Release|Any CPU
+		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EA7C6F9B-00EE-46BA-9FCC-155629866041} = {FEF186F4-19D4-4410-AA56-E255227ED6B7}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		myttClient\myttClient.Shared\myttClient.Shared.projitems*{1f3154cd-0473-4ade-889b-b8844fcb0f5d}*SharedItemsImports = 13
+		myttClient\myttClient.Shared\myttClient.Shared.projitems*{52b0e539-8ec7-4d46-b458-9067ba422fc5}*SharedItemsImports = 4
+		myttClient\myttClient.Shared\myttClient.Shared.projitems*{5bc14186-0932-43d2-9657-04649614b217}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
