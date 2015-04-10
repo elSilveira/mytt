@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Sucesso";
+}
+
+<h2>Usuário criado com sucesso!!</h2>
+
+<script>
+    var ret = localStorage.getItem('username') + "|" + localStorage.getItem('senha');
+    window.external.notify(ret);
+</script>

@@ -22,6 +22,7 @@ namespace mytt.Controllers
             return View();
         }
 
+        #region Registro Site
         public ActionResult Registro()
         {
             return View();
@@ -61,5 +62,48 @@ namespace mytt.Controllers
         {
             return View();
         }
+        #endregion
+
+        #region Registro Mobile
+        public ActionResult RegistroMobile()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegistroMobile(UsuarioViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var u = db.Usuario.FirstOrDefault(w => w.Username.Equals(model.Username));
+
+                if (u == null)
+                {
+                    var usuario = new Usuario();
+
+                    TryUpdateModel(usuario);
+
+                    usuario.Password = Convert.ToBase64String(Encoding.UTF8.GetBytes(model.Password));
+
+                    db.Usuario.Add(usuario);
+
+                    db.SaveChanges();
+
+                    return RedirectToAction("SucessoMobile");
+                }
+                else
+                {
+                    ModelState.AddModelError("Username", "Este nome de usuário já existe! Por favor, escolha outro.");
+                }
+            }
+
+            return View(model);
+        }
+
+        public ActionResult SucessoMobile()
+        {
+            return View();
+        }
+        #endregion
     }
 }

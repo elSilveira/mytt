@@ -16,7 +16,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configura
 		PublishScripts\Configurations\mytt-WAWS-dev.json = PublishScripts\Configurations\mytt-WAWS-dev.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "myttClient", "myttClient", "{F9CD4F95-E8D0-49B3-8E39-339002A114D7}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "myttClient.Shared", "myttClient\myttClient.Shared\myttClient.Shared.shproj", "{2CB0D824-8462-43F8-80F2-0B6066DBE048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myttClient.Windows", "myttClient\myttClient.Windows\myttClient.Windows.csproj", "{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myttClient.WindowsPhone", "myttClient\myttClient.WindowsPhone\myttClient.WindowsPhone.csproj", "{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		myttClient\myttClient.Shared\myttClient.Shared.projitems*{2cb0d824-8462-43f8-80f2-0b6066dbe048}*SharedItemsImports = 13
+		myttClient\myttClient.Shared\myttClient.Shared.projitems*{bd40d0b5-4966-49ea-bb6c-28ff2984da2c}*SharedItemsImports = 4
+		myttClient\myttClient.Shared\myttClient.Shared.projitems*{889a3bf3-8592-4ec1-8c8e-76b3ebdd2185}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -38,16 +51,58 @@ Global
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|ARM.ActiveCfg = Release|Any CPU
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|x64.ActiveCfg = Release|Any CPU
 		{DEE6C51A-E19D-40B8-958A-E2B5C8F121D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|ARM.ActiveCfg = Debug|ARM
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|ARM.Build.0 = Debug|ARM
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|ARM.Deploy.0 = Debug|ARM
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|x64.ActiveCfg = Debug|x64
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|x64.Build.0 = Debug|x64
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|x64.Deploy.0 = Debug|x64
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|x86.ActiveCfg = Debug|x86
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|x86.Build.0 = Debug|x86
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Debug|x86.Deploy.0 = Debug|x86
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|ARM.ActiveCfg = Release|ARM
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|ARM.Build.0 = Release|ARM
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|ARM.Deploy.0 = Release|ARM
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|x64.ActiveCfg = Release|x64
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|x64.Build.0 = Release|x64
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|x64.Deploy.0 = Release|x64
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|x86.ActiveCfg = Release|x86
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|x86.Build.0 = Release|x86
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C}.Release|x86.Deploy.0 = Release|x86
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|ARM.ActiveCfg = Debug|ARM
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|ARM.Build.0 = Debug|ARM
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|ARM.Deploy.0 = Debug|ARM
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|x86.ActiveCfg = Debug|x86
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|x86.Build.0 = Debug|x86
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Debug|x86.Deploy.0 = Debug|x86
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|ARM.ActiveCfg = Release|ARM
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|ARM.Build.0 = Release|ARM
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|ARM.Deploy.0 = Release|ARM
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|x64.ActiveCfg = Release|Any CPU
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|x86.ActiveCfg = Release|x86
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|x86.Build.0 = Release|x86
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EA7C6F9B-00EE-46BA-9FCC-155629866041} = {FEF186F4-19D4-4410-AA56-E255227ED6B7}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		myttClient\myttClient.Shared\myttClient.Shared.projitems*{1f3154cd-0473-4ade-889b-b8844fcb0f5d}*SharedItemsImports = 13
-		myttClient\myttClient.Shared\myttClient.Shared.projitems*{52b0e539-8ec7-4d46-b458-9067ba422fc5}*SharedItemsImports = 4
-		myttClient\myttClient.Shared\myttClient.Shared.projitems*{5bc14186-0932-43d2-9657-04649614b217}*SharedItemsImports = 4
+		{2CB0D824-8462-43F8-80F2-0B6066DBE048} = {F9CD4F95-E8D0-49B3-8E39-339002A114D7}
+		{BD40D0B5-4966-49EA-BB6C-28FF2984DA2C} = {F9CD4F95-E8D0-49B3-8E39-339002A114D7}
+		{889A3BF3-8592-4EC1-8C8E-76B3EBDD2185} = {F9CD4F95-E8D0-49B3-8E39-339002A114D7}
 	EndGlobalSection
 EndGlobal
