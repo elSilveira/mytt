@@ -100,17 +100,17 @@ namespace myttClient
 
                             await login.GetUsuario(t.Result);
 
-                            if (!(string.IsNullOrWhiteSpace(TxtPassword.Password) &&
-                                  string.IsNullOrWhiteSpace(TxtUserName.Text)))
-                            {
-                                _func.SaveUserNameAndPassword(TxtUserName.Text, TxtPassword.Password); 
-                            }
-
-                            TxtUserName.Text = string.Empty;
-                            TxtPassword.Password = string.Empty;
-
                             await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                             {
+                                TxtUserName.Text = string.Empty;
+                                TxtPassword.Password = string.Empty;
+
+                                if (!(string.IsNullOrWhiteSpace(TxtPassword.Password) &&
+                                 string.IsNullOrWhiteSpace(TxtUserName.Text)))
+                                {
+                                    _func.SaveUserNameAndPassword(TxtUserName.Text, TxtPassword.Password);
+                                }
+
                                 Frame.Navigate(typeof(Posts));
                             });
                         }
