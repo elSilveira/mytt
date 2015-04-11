@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using myttClient.Model;
@@ -54,6 +55,35 @@ namespace myttClient.Metodos
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public async Task<List<Pesquisa>> Pesquisar(string textoPesquisa)
+        {
+            try
+            {
+                // api/usuario/pesquisa?id={id}&texto={texto}
+                var usuarioJson = _func.GetValuesOnLocalStorage("Usuario").ToString();
+                var usuario = JsonConvert.DeserializeObject<Usuario>(usuarioJson);
+                var token = _func.GetValuesOnLocalStorage("token").ToString();
+                var client = new HttpClient { BaseAddress = new Uri(App.UrlBase) };
+
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+
+                var response =
+                    await client.GetAsync("api/usuario/pesquisa?id=" + usuario.Id + "&texto=" + textoPesquisa);
+
+                response.EnsureSuccessStatusCode();
+
+                var model = JsonConvert.DeserializeObject<List<Pesquisa>>(await response.Content.ReadAsStringAsync());
+
+                return model;
+            }
+            catch (Exception)
+            {
+                
                 throw;
             }
         }

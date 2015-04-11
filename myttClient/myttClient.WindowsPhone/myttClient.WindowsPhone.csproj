@@ -90,6 +90,9 @@
       <DependentUpon>NovoPost.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Paginas\Pesquisa.xaml.cs">
+      <DependentUpon>Pesquisa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Posts.xaml.cs">
       <DependentUpon>Posts.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Paginas\NovoPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Paginas\Pesquisa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

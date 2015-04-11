@@ -60,7 +60,7 @@ namespace myttClient.Paginas
 
         private void BtnPesquisar_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Frame.Navigate(typeof (Pesquisa));
         }
     }
 }

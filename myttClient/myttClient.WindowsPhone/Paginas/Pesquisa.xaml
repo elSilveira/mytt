@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="myttClient.Paginas.Pesquisa"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:myttClient.Paginas"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="White" Foreground="Black" FontSize="30" RequestedTheme="Light">
+
+    <Grid>
+        <StackPanel>
+            <TextBox x:Name="TxtPesquisa" 
+                     Margin="20 10" 
+                     KeyUp="TxtPesquisa_OnKeyUp"/>
+            <ScrollViewer Height="557">
+                <ListBox x:Name="LstUsuarios" 
+                     Background="White" Height="479" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock 
+                                Foreground="Black"
+                                FontSize="30"
+                                Text="{Binding Username}"/>
+                                <CheckBox 
+                                IsEnabled="False" 
+                                IsChecked="{Binding Seguindo}" 
+                                Content="Seguindo" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </StackPanel>
+        
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="BtnLogoff" Label="logoff" Icon="Cancel" Click="BtnLogoff_OnClick"/>
+                <AppBarButton x:Name="BtnSobre" Label="sobre" Icon="Help" Click="BtnSobre_OnClick"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

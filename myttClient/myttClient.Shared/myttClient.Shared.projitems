@@ -20,11 +20,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Metodos\Login.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Metodos\RequisicoesPost.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Mensagens.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Pesquisa.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Post.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Token.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Usuario.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Paginas\NovaConta.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Paginas\NovoPost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Paginas\Pesquisa.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Paginas\Posts.cs" />
   </ItemGroup>
 </Project>

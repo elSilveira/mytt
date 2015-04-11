@@ -11,32 +11,34 @@
     <Grid>
         <ProgressRing x:Name="ProgressRing" IsActive="False" Grid.RowSpan="4" Foreground="#FF22406A" BorderBrush="#FF22406A" Background="#33000000" />
 
-        <ListBox x:Name="PostsListBox" Background="White">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="15,0,15,20">
-                        <TextBlock  
+        <ScrollViewer>
+            <ListBox x:Name="PostsListBox" Background="White">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="15,0,15,20">
+                            <TextBlock  
                 Text="{Binding Message}" 
                 TextWrapping="Wrap" 
                 FontSize="25" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
                 	Text="{Binding PublishDate}" 
                 	FontSize="15" 
                 	VerticalAlignment="Center"
                     TextAlignment="Left"
                     Width="145"/>
-                            <TextBlock 
+                                <TextBlock 
                     Text="{Binding Usuario.Username}" 
                     FontSize="15"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
                     Width="220"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
