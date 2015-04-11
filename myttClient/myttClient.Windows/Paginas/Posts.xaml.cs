@@ -12,7 +12,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using myttClient.Metodos;
 using myttClient.Model;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556

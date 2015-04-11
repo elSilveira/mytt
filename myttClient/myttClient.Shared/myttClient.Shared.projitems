@@ -15,10 +15,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)MainPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Metodos\Funcoes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Metodos\Login.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Paginas\" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Mensagens.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Token.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Usuario.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Paginas\NovaConta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Paginas\NovoPost.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Paginas\Posts.cs" />
   </ItemGroup>
 </Project>

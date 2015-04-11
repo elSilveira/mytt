@@ -29,7 +29,7 @@ namespace myttClient
         private TransitionCollection transitions;
 #endif
 
-        public string UrlBase { get; set; }
+        public const string UrlBase = "http://mytt.azurewebsites.net/";
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -39,8 +39,6 @@ namespace myttClient
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
-
-            this.UrlBase = "http://mytt.azurewebsites.net/";
         }
 
         /// <summary>

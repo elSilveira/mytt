@@ -39,7 +39,7 @@
         </ListBox>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar IsOpen="True">
             <AppBarButton x:Name="BtnNovoPost" Label="Novo" Icon="Mail" Click="BtnNovoPost_OnClick"/>
             <AppBarButton x:Name="BtnPesquisar" Label="Pesquisar" Icon="Find" Click="BtnPesquisar_OnClick"/>
             <CommandBar.SecondaryCommands>

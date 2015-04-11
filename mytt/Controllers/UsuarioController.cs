@@ -32,6 +32,17 @@ namespace mytt.Controllers
             return pesquisa;
         }
 
+        [HttpGet]
+        [Route("api/usuario/usuariologado")]
+        public async Task<Usuario> UsuarioLogado()
+        {
+            var sql = string.Format("SELECT * FROM Usuario WHERE Username LIKE '{0}'", User.Identity.Name);
+
+            var usuario = await db.Database.SqlQuery<Usuario>(sql).FirstOrDefaultAsync();
+
+            return usuario;
+        }
+
         [HttpPost]
         [Route("api/usuario/seguir")]
         public async Task<IHttpActionResult> Seguir(int idSeguidor, int idSeguido)
@@ -99,29 +110,6 @@ namespace mytt.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
         
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("api/usuario/login")]
-        public async Task<IHttpActionResult> Login(string token)
-        {
-            var tokenSplited = Encoding.UTF8.GetString(Convert.FromBase64String(token)).Split('-');
-
-            var username = tokenSplited[0];
-            var pass = tokenSplited[2];
-
-            var user = await (from u in db.Usuario
-                              where u.Username.Equals(username) && u.Password.Equals(pass)
-                              select u
-                             ).FirstOrDefaultAsync();
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(user.Id);
-        }
-
         [AllowAnonymous]
         [HttpGet]
         [Route("api/usuario/todos")]

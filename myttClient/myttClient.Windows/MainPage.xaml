@@ -5,9 +5,67 @@
     xmlns:local="using:myttClient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    Background="White" Foreground="Black" FontSize="30" RequestedTheme="Light" Loaded="Page_Loaded" >
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid>
+        <ProgressRing x:Name="ProgressRing" IsActive="False" Grid.RowSpan="4" Foreground="#FF22406A" BorderBrush="#FF22406A" Background="#33000000" />
+        <Grid Margin="30 5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="73*"/>
+                <RowDefinition Height="38*"/>
+                <RowDefinition Height="394*"/>
+                <RowDefinition Height="125*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Text="MyTT Client"
+                TextAlignment="Center"
+                FontSize="60" Margin="0,0,0,36.833" Grid.RowSpan="2" />
+            <StackPanel Grid.Row="2" Margin="0,0.167,0,0" Grid.RowSpan="2">
+                <TextBlock 
+                    Text="Nome de Usuário" />
+                <TextBox x:Name="TxtUserName"
+                    FontSize="40"
+                    BorderBrush="Teal"
+                    Height="60"
+                />
+                <TextBlock 
+                Text="Senha" />
+                <PasswordBox x:Name="TxtPassword"
+                    FontSize="40"
+                    BorderBrush="Teal"
+                    Height="60"
+                    PasswordChar="*"/>
+                <Button x:Name="BtnLogin"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Content="Login"
+                    Foreground="White"
+                    FontSize="50"
+                    Background="SteelBlue"
+                    Click="BtnLogin_OnClick"
+                />
+            </StackPanel>
+            <StackPanel Grid.Row="3" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center">
+                <TextBlock Text="Ainda não tem conta?" />
+                <Button x:Name="BtnNovaConta"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Content="Crie a sua!"
+                    Foreground="Blue"
+                    FontSize="20"
+                    Background="White"
+                    Margin="0 10"
+                    Click="BtnNovaConta_OnClick"
+                />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

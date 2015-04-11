@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using myttClient.Metodos;
 using myttClient.Paginas;
@@ -24,10 +14,8 @@ namespace myttClient
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
-    {
-        readonly StatusBar _statusBar = StatusBar.GetForCurrentView();
-
+    public sealed partial class MainPage
+    {   
         public MainPage()
         {
             this.InitializeComponent();
@@ -49,55 +37,6 @@ namespace myttClient
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
-        }
-
-        private async void BtnLogin_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(TxtUserName.Text) || string.IsNullOrWhiteSpace(TxtPassword.Text))
-            {
-                var dialog = new MessageDialog("Campos obrigatórios!", "Atenção!");
-
-                await dialog.ShowAsync();
-            }
-            else
-            {
-                ProgressRing.IsActive = true;
-
-                var msgErro = string.Empty;
-                try
-                {
-                    var login = new Login();
-
-                    var token = await login.GetToken(TxtUserName.Text, TxtPassword.Text);
-
-                    if (string.IsNullOrWhiteSpace(token))
-                    {
-                        throw new Exception("Token vazio! Por favor tente novamente!");
-                    }
-
-                    new Funcoes().SaveOrUpdateOnLocalStorage("token", token);
-
-                    Frame.Navigate(typeof (Posts));
-                }
-                catch (Exception ex)
-                {
-                    msgErro = string.IsNullOrWhiteSpace(ex.Message) ? ex.InnerException.Message : ex.Message;
-                }
-
-                if (!string.IsNullOrWhiteSpace(msgErro))
-                {
-                    var dialog = new MessageDialog(msgErro, "Houve um erro na requisição!");
-
-                    await dialog.ShowAsync();
-
-                    ProgressRing.IsActive = false;
-                }
-            }
-        }
-
-        private void BtnNovaConta_OnClick(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NovaConta));
         }
     }
 }

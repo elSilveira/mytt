@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White" Loaded="Page_Loaded" RequestedTheme="Light">
+     Background="White" Loaded="Page_Loaded" RequestedTheme="Light">
 
     <Grid>
         <ProgressRing x:Name="ProgressRing" IsActive="True" Foreground="#FF22406A" BorderBrush="#FF22406A" Background="#33000000" />
@@ -16,7 +16,7 @@
     </Grid>
 
     <Page.BottomAppBar>
-        <CommandBar>
+        <CommandBar IsOpen="True" IsSticky="True">
             <AppBarButton x:Name="BtnVoltar" Label="Voltar" Icon="Back" Click="BtnVoltar_OnClick"/>
         </CommandBar>
     </Page.BottomAppBar>
