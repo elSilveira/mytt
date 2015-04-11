@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using myttClient.Metodos;
 using myttClient.Model;
@@ -11,34 +13,32 @@ namespace myttClient.Paginas
     {
         private readonly Funcoes _func = new Funcoes();
 
-        private void Posts_OnLoaded(object sender, RoutedEventArgs e)
+        private async void Posts_OnLoaded(object sender, RoutedEventArgs e)
         {
-            var posts = new List<Mensagens>
+            var req = new RequisicoesPost();
+            await req.GetPosts().ContinueWith(async (t) =>
             {
-                new Mensagens
+                var msg = string.Empty;
+                try
                 {
-                    Id = 1,
-                    Data = "24/05/2015 14h35",
-                    Texto = "asdfasfhasdjkfhasfha s dflkahsd flkas dflkhasdlfhasld fhasdkf asdlfk aslkdf askdf asda",
-                    Username = "andrelima"
-                },
-                new Mensagens
+                    await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        PostsListBox.ItemsSource = t.Result;
+                    });
+                }
+                catch (Exception ex)
                 {
-                    Id = 2,
-                    Data = "25/05/2015 14h35",
-                    Texto = "asdfasfhasdjkfhasfha s dflkahsd flkas",
-                    Username = "andrelima"
-                },
-                new Mensagens
-                {
-                    Id = 3,
-                    Data = "26/05/2015 14h35",
-                    Texto = "asdfasfhasdjkfhasfha s dflkahsd flkas asdf j~çlapiu sdfuhasdfhasldkjfh askfyhasdo fhasdkfh askfha skjd",
-                    Username = "andrelima"
-                },
-            };
+                    msg = string.IsNullOrWhiteSpace(ex.Message)
+                        ? ex.InnerException.Message
+                        : ex.Message;    
+                }
 
-            PostsListBox.ItemsSource = posts;
+                if (!string.IsNullOrWhiteSpace(msg))
+                {
+                    var dialog = new MessageDialog(msg);
+                    await dialog.ShowAsync();
+                }
+            });
         }
 
         private void BtnNovoPost_OnClick(object sender, RoutedEventArgs e)
