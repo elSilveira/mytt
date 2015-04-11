@@ -4,6 +4,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using myttClient.Metodos;
 using myttClient.Paginas;
+using System.Threading.Tasks;
 
 namespace myttClient
 {
@@ -29,11 +30,7 @@ namespace myttClient
                 var msgErro = string.Empty;
                 try
                 {
-                    Login(false);
-
-                    _func.SaveUserNameAndPassword(TxtUserName.Text, TxtPassword.Password);
-
-                    Frame.Navigate(typeof(Posts));
+                    await Login(false);
                 }
                 catch (Exception ex)
                 {
@@ -76,7 +73,7 @@ namespace myttClient
             }
         }
 
-        internal async void Login(bool autoLogin)
+        internal async Task Login(bool autoLogin)
         {
             try
             {
@@ -91,21 +88,37 @@ namespace myttClient
                     password = _func.GetValuesOnLocalStorage("Password").ToString();
                 }
 
-                var token =
-                    await
-                        login.GetToken(userName, password);
+                await login.GetToken(userName, password).ContinueWith((t) =>
+                    {
+                        try
+                        {
+                            if (string.IsNullOrWhiteSpace(t.Result))
+                            {
+                                throw new Exception("Token vazio! Por favor tente novamente!");
+                            }
 
-                if (string.IsNullOrWhiteSpace(token))
-                {
-                    throw new Exception("Token vazio! Por favor tente novamente!");
-                }
+                            _func.SaveOrUpdateOnLocalStorage("token", t.Result);
 
-                _func.SaveOrUpdateOnLocalStorage("token", token);
+                            login.GetUsuario(t.Result).ConfigureAwait(true);
 
-                await login.GetUsuario(token);
+                            if (!(string.IsNullOrWhiteSpace(TxtPassword.Password) &&
+                                  string.IsNullOrWhiteSpace(TxtUserName.Text)))
+                            {
+                                _func.SaveUserNameAndPassword(TxtUserName.Text, TxtPassword.Password); 
+                            }
 
-                TxtUserName.Text = string.Empty;
-                TxtPassword.Password = string.Empty;
+                            TxtUserName.Text = string.Empty;
+                            TxtPassword.Password = string.Empty;
+
+                            Frame.Navigate(typeof(Posts));
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    });
+               
+                
             }
             catch (Exception)
             {
