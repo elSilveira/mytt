@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Input;
 using myttClient.Metodos;
+using myttClient.Model;
 
 namespace myttClient.Paginas
 {
@@ -18,14 +21,52 @@ namespace myttClient.Paginas
             LblContador.Text = string.Format("Restam {0} caracteres", 255 - contador);
         }
 
-        private void BtnEnviar_OnClick(object sender, RoutedEventArgs e)
+        private async void BtnEnviar_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(TxtMensagem.Text))
+            {
+                var dialog = new MessageDialog("Campo obrigatório", "Atenção!");
+                await dialog.ShowAsync();
+            }
+
+            try
+            {
+                var req = new RequisicoesPost();
+
+                var post = new Post
+                {
+                    Id = 0,
+                    IdParent = 0,
+                    IsRT = false,
+                    IdUsuario = 0,
+                    PublishDate = DateTime.UtcNow.AddHours(-3),
+                    Message = TxtMensagem.Text
+                };
+
+                await req.PostMensagem(post).ContinueWith(async (t) =>
+                {
+                    if (t.Result)
+                    {
+                        await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            Frame.Navigate(typeof (Posts));
+                        });
+                    }
+                    else
+                    {
+                        var dialog = new MessageDialog(@"Ocorreu um erro desconhecido!\n\nTente novamente.", "Atenção!");
+                        await dialog.ShowAsync();
+                    }
+                });
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void BtnCancelar_OnClick(object sender, RoutedEventArgs e)
         {
-
             Frame.Navigate(typeof (Posts));
         }
 
