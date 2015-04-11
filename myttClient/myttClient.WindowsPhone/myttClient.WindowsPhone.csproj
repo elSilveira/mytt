@@ -88,6 +88,7 @@
     </Compile>
     <Compile Include="Paginas\NovoPost.xaml.cs">
       <DependentUpon>NovoPost.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Paginas\Posts.xaml.cs">
       <DependentUpon>Posts.xaml</DependentUpon>
