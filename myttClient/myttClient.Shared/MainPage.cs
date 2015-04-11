@@ -5,6 +5,7 @@ using Windows.UI.Xaml;
 using myttClient.Metodos;
 using myttClient.Paginas;
 using System.Threading.Tasks;
+using Windows.UI.Core;
 
 namespace myttClient
 {
@@ -62,9 +63,7 @@ namespace myttClient
                 ProgressRing.IsActive = true;
                 try
                 {
-                    Login(true);   
-
-                    Frame.Navigate(typeof(Posts));
+                    await Login(true);
                 }
                 catch
                 {
@@ -88,7 +87,7 @@ namespace myttClient
                     password = _func.GetValuesOnLocalStorage("Password").ToString();
                 }
 
-                await login.GetToken(userName, password).ContinueWith((t) =>
+                await login.GetToken(userName, password).ContinueWith(async (t) =>
                     {
                         try
                         {
@@ -99,7 +98,7 @@ namespace myttClient
 
                             _func.SaveOrUpdateOnLocalStorage("token", t.Result);
 
-                            login.GetUsuario(t.Result).ConfigureAwait(true);
+                            await login.GetUsuario(t.Result);
 
                             if (!(string.IsNullOrWhiteSpace(TxtPassword.Password) &&
                                   string.IsNullOrWhiteSpace(TxtUserName.Text)))
@@ -110,7 +109,10 @@ namespace myttClient
                             TxtUserName.Text = string.Empty;
                             TxtPassword.Password = string.Empty;
 
-                            Frame.Navigate(typeof(Posts));
+                            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                            {
+                                Frame.Navigate(typeof(Posts));
+                            });
                         }
                         catch (Exception)
                         {
