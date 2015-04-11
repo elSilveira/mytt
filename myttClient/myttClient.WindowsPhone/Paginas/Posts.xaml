@@ -16,22 +16,22 @@
                 <DataTemplate>
                     <StackPanel Margin="15,0,15,20">
                         <TextBlock  
-                Text="{Binding Texto}" 
+                Text="{Binding Message}" 
                 TextWrapping="Wrap" 
                 FontSize="25" />
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
-                	Text="{Binding Data}" 
+                	Text="{Binding PublishDate}" 
                 	FontSize="15" 
                 	VerticalAlignment="Center"
                     TextAlignment="Left"
-                    Width="135"/>
+                    Width="145"/>
                             <TextBlock 
-                    Text="{Binding Username}" 
+                    Text="{Binding Usuario.Username}" 
                     FontSize="15"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Left"
-                    Width="230"/>
+                    Width="220"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

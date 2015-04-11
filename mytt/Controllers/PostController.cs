@@ -18,11 +18,11 @@ namespace mytt.Controllers
         private Contexto db = new Contexto();
 
         [Route("api/usuario/posts")]
-        public IQueryable<Post> GetPost(string id)
+        public async Task<IList<Post>> GetPost(string id)
         {
             var sql = string.Format("SELECT * FROM Post p WHERE IdUsuario = {0} OR IdUsuario IN (SELECT IdUsuarioSeguido FROM Seguidores WHERE IdUsuarioSeguidor = {0}) OR Message LIKE '%@{1}%' ORDER BY PublishDate DESC",
                 id, User.Identity.Name);
-            var posts = db.Post.SqlQuery(sql).AsQueryable();
+            var posts = await db.Post.SqlQuery(sql).ToListAsync();
             return posts;
         }
 
